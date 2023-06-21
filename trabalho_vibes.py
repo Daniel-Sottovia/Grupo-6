@@ -49,5 +49,9 @@ class Vibes():
         plt.show()
 
 if __name__ == '__main__':
-    daniel = Vibes()
-    daniel.plotar_frf_excel()
+    #daniel = Vibes()
+    #daniel.plotar_frf_excel()
+    df = pd.read_excel("D:\\UFSC\\Vibes\\Cordioli\\Trabalho\\Grupo 6\\FRF_easy_to_import.xlsx")
+    frf_1_andar = np.abs(df['Signal 2 (Imag.)']) + np.abs(df['Signal 2 (Real)']) 
+    freq = df['Frequencia']
+    print(frf_1_andar)
