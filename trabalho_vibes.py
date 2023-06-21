@@ -15,7 +15,7 @@ class Vibes():
         # Plotar gráfico da FRF do primeiro andar
         frf_1_andar = np.abs(df['Signal 2 (Imag.)']) + np.abs(df['Signal 2 (Real)']) # Obtém-se o módulo da FRF
 
-        plt.plot(freq, frf_1_andar)
+        plt.plot(freq[2:], frf_1_andar[2:])
         plt.xlabel('Frequência [Hz]')
         plt.ylabel('Módulo da FRF no primeiro andar')
         plt.title('FRF1 Experimental')
@@ -27,7 +27,7 @@ class Vibes():
         # Plotar gráfico da FRF do segundo andar
         frf_2_andar = np.abs(df['Signal 3 (Imag.)']) + np.abs(df['Signal 3 (Real)']) # Obtém-se o módulo da FRF
 
-        plt.plot(freq, frf_2_andar)
+        plt.plot(freq[2:], frf_2_andar[2:])
         plt.xlabel('Frequência [Hz]')
         plt.ylabel('Módulo da FRF no segundo andar')
         plt.title('FRF2 Experimental')
@@ -39,7 +39,7 @@ class Vibes():
         # Plotar gráfico da FRF do terceiro andar
         frf_3_andar = np.abs(df['Signal 4 (Imag.)']) + np.abs(df['Signal 4 (Real)']) # Obtém-se o módulo da FRF
 
-        plt.plot(freq, frf_3_andar)
+        plt.plot(freq[2:], frf_3_andar[2:])
         plt.xlabel('Frequência [Hz]')
         plt.ylabel('Módulo da FRF no terceiro andar')
         plt.title('FRF3 Experimental')
@@ -49,9 +49,10 @@ class Vibes():
         plt.show()
 
 if __name__ == '__main__':
-    #daniel = Vibes()
-    #daniel.plotar_frf_excel()
-    df = pd.read_excel("D:\\UFSC\\Vibes\\Cordioli\\Trabalho\\Grupo 6\\FRF_easy_to_import.xlsx")
+    daniel = Vibes()
+    daniel.plotar_frf_excel()
+
+    '''df = pd.read_excel("D:\\UFSC\\Vibes\\Cordioli\\Trabalho\\Grupo 6\\FRF_easy_to_import.xlsx")
     frf_1_andar = np.abs(df['Signal 2 (Imag.)']) + np.abs(df['Signal 2 (Real)']) 
     freq = df['Frequencia']
-    print(frf_1_andar)
+    print(frf_1_andar)'''
