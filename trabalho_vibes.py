@@ -210,11 +210,11 @@ class Vibes():
         print(f'Banda de Meia-Potência {meia_banda}')
 
 
-    def interpolacao(self, x, y):
-        # No caso x e y são um array de tamanho 1 x 3
-        # No caso x[0] < x[1] < x[2]
+    def interpolacao(self, x, y, y_inter):
+        # No caso x e y são um array de tamanho 1 x 2
+        # No caso x[0] < x[1]
 
-        xa = ((x[2] - x[0])*(y[1] - y[0])/(y[2] - y[0])) + x[0]
+        xa = ((x[1] - x[0])*(y_inter - y[0])/(y[1] - y[0])) + x[0]
 
         return xa
 
@@ -228,9 +228,47 @@ class Vibes():
 
 
 if __name__ == '__main__':
-    daniel = Vibes()
+    #daniel = Vibes()
     #daniel.plotar_frf_excel()
-    daniel.obter_qsi_cada_andar()
+    #daniel.obter_qsi_cada_andar()
+    x = [141.5, 141]
+    y = [1.6434072, 1.9572694]
+    y_interp = 1.8221178671741352
+
+    x = [273*0.5, 274*0.5]
+    y = [1.6704992, 2.0205952]
+    y_interp = 1.8221178671741352
+
+    x = [144*0.5, 143*0.5]
+    y = [6.819267, 10.731814]
+    y_interp = 7.588538453832727
+
+    x = [21.5, 21]
+    y = [0.50667976, 1.0129031]
+    y_interp = 0.7162306506948756
+
+    x = [70.5, 71]
+    y = [5.987467, 7.587771]
+    y_interp = 7.303170663042491
+
+    x = [284*0.5 ,283*0.5]
+    y = [1.0990418 ,1.2538949]
+    y_interp = 1.2111344747153059
+
+    x = [20.5 ,21]
+    y = [0.7906137 ,1.6221873]
+    y_interp = 1.1470596401846962
+
+    x = [43*0.5 ,21]
+    y = [0.82167842 ,1.6221873]
+    y_interp = 1.1470596401846962
+
+    x = [71 ,71.5]
+    y = [0.46226258, 0.7791773]
+    y_interp = 0.5509615525766248
+
+    xa = ((x[1] - x[0])*(y_interp - y[0])/(y[1] - y[0])) + x[0]
+    print(xa)
 
     '''df = pd.read_excel("D:\\UFSC\\Vibes\\Cordioli\\Trabalho\\Grupo 6\\FRF_easy_to_import.xlsx")
     frf_1_andar = np.abs(df['Signal 2 (Imag.)']) + np.abs(df['Signal 2 (Real)']) 
